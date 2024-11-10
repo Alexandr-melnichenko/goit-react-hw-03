@@ -11,9 +11,13 @@
   },
   "dependencies": {
     "formik": "^2.4.6",
+    "maskedinput": "^3.3.11",
     "nanoid": "^5.0.8",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-input-mask": "^2.0.4",
+    "react-text-mask": "^5.5.0",
+    "yup": "^1.4.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",

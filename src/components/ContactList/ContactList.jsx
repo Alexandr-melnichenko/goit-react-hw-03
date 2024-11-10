@@ -20,7 +20,13 @@ const ContactList = ({
             </li>
           ))
         : filteredContacts.map((contact) => (
-            <li key={contact.id}>{contact.name}</li>
+            <li key={contact.id}>
+              <Contact
+                contact={contact}
+                updateContacts={updateContacts}
+                deleteContact={deleteContact}
+              />
+            </li>
           ))}
     </ul>
   );
