@@ -48,7 +48,7 @@ function App() {
   };
 
   return (
-    <div>
+    <div className="wrap">
       <h1>Phonebook</h1>
       <ContactForm onAddContact={addContact} />
       <SearchBox searchValue={searchValue} setSearchValue={setSearchValue} />

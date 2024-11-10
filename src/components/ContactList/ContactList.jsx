@@ -1,4 +1,5 @@
 import Contact from "../Contact/Contact";
+import s from "./ContactList.module.css";
 
 const ContactList = ({
   contacts,
@@ -8,7 +9,7 @@ const ContactList = ({
   deleteContact,
 }) => {
   return (
-    <ul>
+    <ul className={s.listContact}>
       {searchValue === ""
         ? contacts.map((contact) => (
             <li key={contact.id}>

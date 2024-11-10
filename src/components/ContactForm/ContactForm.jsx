@@ -2,7 +2,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { nanoid } from "nanoid";
 import * as Yup from "yup";
 import MaskedInput from "react-text-mask";
-import { useRef } from "react";
+import stl from "./ContactForm.module.css";
 
 const FeedBackSchema = Yup.object().shape({
   name: Yup.string()
@@ -39,18 +39,20 @@ const ContactForm = ({ onAddContact }) => {
     actions.resetForm();
   };
 
-  const inputRef = useRef();
-
   return (
-    <div>
+    <div className={stl.formWraper}>
       <Formik
         initialValues={initialValues}
         onSubmit={handleSubmit}
         validationSchema={FeedBackSchema}
       >
         {({ setFieldValue }) => (
-          <Form>
+          <Form className={stl.forma}>
+            <label className={stl.labelForma} htmlFor="name">
+              Name
+            </label>
             <Field
+              className={stl.inputForma}
               type="text"
               name="name"
               onChange={(e) => {
@@ -63,20 +65,34 @@ const ContactForm = ({ onAddContact }) => {
                   .join(" ");
                 setFieldValue("name", value);
               }}
+              placeholder="Name Surname"
             />
-            <ErrorMessage name="name" component="span" />
-            <label htmlFor="number">Phone Number</label>
+            <ErrorMessage
+              className={stl.validationMessage}
+              name="name"
+              component="span"
+            />
+            <label className={stl.labelForma} htmlFor="number">
+              Number
+            </label>
             <Field name="number">
               {({ field }) => (
                 <MaskedInput
                   {...field}
                   mask={[/\d/, /\d/, /\d/, "-", /\d/, /\d/, "-", /\d/, /\d/]}
                   placeholder="111-11-11"
+                  className={stl.inputForma}
                 />
               )}
             </Field>
-            <ErrorMessage name="number" component="span" />
-            <button type="submit">Ad contact</button>
+            <ErrorMessage
+              className={stl.validationMessage}
+              name="number"
+              component="span"
+            />
+            <button className={stl.buttonForm} type="submit">
+              Ad contact
+            </button>
           </Form>
         )}
       </Formik>
